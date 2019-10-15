@@ -48,7 +48,7 @@ public class SelectCommand extends Command {
     }
 
     private Selection selectUntilNextMatch(char findChar) {
-        int newEndIndex = text.indexOf(findChar, selection.getEndIndex());
+        int newEndIndex = text.indexOf(findChar, selection.getEndIndex() + 1);
         newEndIndex = newEndIndex == -1 ? selection.getEndIndex() : newEndIndex;
         newEndIndex = newEndIndex == selection.getEndIndex() ? newEndIndex : newEndIndex - 1;
         return new Selection(selection.getStartIndex(), newEndIndex);

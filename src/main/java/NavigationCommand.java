@@ -44,7 +44,7 @@ public class NavigationCommand extends Command {
     }
 
     private Selection moveToNextMatch(char findChar) {
-        int newEndIndex = text.indexOf(findChar, selection.getEndIndex());
+        int newEndIndex = text.indexOf(findChar, selection.getEndIndex() + 1);
         newEndIndex = newEndIndex == -1 ? selection.getEndIndex() : newEndIndex;
         newEndIndex = newEndIndex == selection.getEndIndex() ? newEndIndex : newEndIndex - 1;
         return new Selection(newEndIndex, newEndIndex);

@@ -15,20 +15,24 @@ public class Mim {
     }
 
     public void start() {
+        System.out.println(getDisplay());
         Scanner reader = new Scanner(System.in);
         String input = reader.nextLine();
         while (input.compareTo(EXIT_CHAR) != 0) {
+            String response;
             try {
-                System.out.println(executeCommand(input));
+                executeCommand(input);
+                response = getDisplay();
             }
             catch (IllegalArgumentException ex) {
-                System.out.println(ex.getMessage());
+                response = ex.getMessage();
             }
+            System.out.println(response);
             input = reader.nextLine();
         }
     }
 
-    public String executeCommand(String command) throws IllegalArgumentException {
+    public void executeCommand(String command) throws IllegalArgumentException {
         Command mimCommand;
         if (command.startsWith("v"))
             mimCommand = new SelectCommand(command, text, selection);
@@ -36,10 +40,9 @@ public class Mim {
             mimCommand = new NavigationCommand(command, text, selection);
 
         selection = mimCommand.execute();
-        return buildOutput();
     }
 
-    private String buildOutput() {
+    public String getDisplay() {
         StringBuilder builder = new StringBuilder();
         int start = Math.min(selection.getStartIndex(), selection.getEndIndex());
         int end = Math.max(selection.getStartIndex(), selection.getEndIndex());
