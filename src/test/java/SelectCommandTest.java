@@ -6,6 +6,7 @@ public class SelectCommandTest {
 
     private SelectCommand command;
     private static String TEXT1 = "Hello World";
+    private static String TEXT2 = "Hello, World.";
 
     @Test(expected=IllegalArgumentException.class)
     public void test_invalid_argument() {
@@ -66,6 +67,14 @@ public class SelectCommandTest {
         command = new SelectCommand("ve", TEXT1, new Selection(0, 0));
         Selection actual = command.execute();
         Selection expected = new Selection(0, 4);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test_select_until_word_end_different_word_types() {
+        command = new SelectCommand("ve", TEXT2, new Selection(0, 4));
+        Selection actual = command.execute();
+        Selection expected = new Selection(0, 5);
         assertEquals(expected, actual);
     }
 

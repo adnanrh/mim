@@ -38,7 +38,10 @@ public class SelectCommand extends Command {
     private Selection selectUntilWordEnd() {
         int newEndIndex = text.length() - 1;
         for (int i = selection.getEndIndex() + 1; i < text.length() - 1; i++) {
-            if (!Character.isWhitespace(text.charAt(i)) && Character.isWhitespace(text.charAt(i+1))) {
+            char ch = text.charAt(i);
+            char nextCh = text.charAt(i + 1);
+            if ((isLetterDigitOrUnderscore(ch) && !isLetterDigitOrUnderscore(nextCh)) ||
+                    (isOtherChar(ch) && !isOtherChar(nextCh))) {
                 newEndIndex = i;
                 break;
             }

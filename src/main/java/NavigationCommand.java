@@ -10,7 +10,7 @@ public class NavigationCommand extends Command {
     }
 
     @Override
-    public Selection execute() {
+    public Selection execute() throws IllegalArgumentException {
         if (command.equals(MOVE_TO_FIRST_COMMAND))
             return moveToFirstChar();
         if (command.equals(MOVE_TO_LAST_COMMAND))
@@ -34,7 +34,10 @@ public class NavigationCommand extends Command {
     private Selection moveToWordEnd() {
         int newEndIndex = text.length() - 1;
         for (int i = selection.getEndIndex() + 1; i < text.length() - 1; i++) {
-            if (!Character.isWhitespace(text.charAt(i)) && Character.isWhitespace(text.charAt(i+1))) {
+            char ch = text.charAt(i);
+            char nextCh = text.charAt(i + 1);
+            if ((isLetterDigitOrUnderscore(ch) && !isLetterDigitOrUnderscore(nextCh)) ||
+                    (isOtherChar(ch) && !isOtherChar(nextCh))) {
                 newEndIndex = i;
                 break;
             }

@@ -6,11 +6,12 @@ import static org.junit.Assert.assertEquals;
 public class MimTest {
 
     private static Mim mim;
-    private static String TEXT = "Hello World";
+    private static String TEXT1 = "Hello World";
+    private static String TEXT2 = "Hello, World.";
 
     @Before
     public void setUp() {
-        mim = new Mim(TEXT);
+        mim = new Mim(TEXT1);
     }
 
     @Test
@@ -41,6 +42,29 @@ public class MimTest {
         assertEquals("[Hello] World", mim.getDisplay());
         mim.executeCommand("ve");
         assertEquals("[Hello World]", mim.getDisplay());
+    }
+
+    @Test
+    public void test_chain_command_repeat_word_end_different_word_types() {
+        mim = new Mim(TEXT2);
+        mim.executeCommand("e");
+        assertEquals("Hell[o], World.", mim.getDisplay());
+        mim.executeCommand("e");
+        assertEquals("Hello[,] World.", mim.getDisplay());
+        mim.executeCommand("e");
+        assertEquals("Hello, Worl[d].", mim.getDisplay());
+        mim.executeCommand("e");
+        assertEquals("Hello, World[.]", mim.getDisplay());
+        mim.executeCommand("0");
+        assertEquals("[H]ello, World.", mim.getDisplay());
+        mim.executeCommand("ve");
+        assertEquals("[Hello], World.", mim.getDisplay());
+        mim.executeCommand("ve");
+        assertEquals("[Hello,] World.", mim.getDisplay());
+        mim.executeCommand("ve");
+        assertEquals("[Hello, World].", mim.getDisplay());
+        mim.executeCommand("ve");
+        assertEquals("[Hello, World.]", mim.getDisplay());
     }
 
     @Test

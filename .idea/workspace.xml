@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="32218708-d201-479a-b5d5-167a5c10e3d2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Mim.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mim.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Command.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/NavigationCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NavigationCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SelectCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SelectCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/MimTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MimTest.java" afterDir="false" />
@@ -53,6 +53,12 @@
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="build" type="c8890929:TasksNode$1" />
               </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="untitled" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="verification" type="c8890929:TasksNode$1" />
+              </path>
             </expand>
             <select />
           </tree_state>
@@ -78,7 +84,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="C:/Program Files/Git/bin/git.exe" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Facets" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
@@ -95,22 +101,41 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.Mim [run]">
-    <configuration name="Mim [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.Mim [test]">
+    <configuration name="Mim [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
+        <option name="scriptParameters" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="run" />
+            <option value="clean" />
           </list>
         </option>
-        <option name="vmOptions" value="" />
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Mim [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
       </ExternalSystemSettings>
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
@@ -121,26 +146,6 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" value="--tests &quot;MimTest&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":cleanTest" />
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="MimTest.test_invalid_command_no_state_change" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;MimTest.test_invalid_command_no_state_change&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -244,18 +249,18 @@
     </configuration>
     <list>
       <item itemvalue="Gradle.MimTest" />
-      <item itemvalue="Gradle.MimTest.test_invalid_command_no_state_change" />
       <item itemvalue="Gradle.NavigationCommandTest" />
       <item itemvalue="Gradle.SelectCommandTest" />
-      <item itemvalue="Gradle.Mim [run]" />
+      <item itemvalue="Gradle.Mim [clean]" />
+      <item itemvalue="Gradle.Mim [test]" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Mim [run]" />
+        <item itemvalue="Gradle.Mim [test]" />
+        <item itemvalue="Gradle.Mim [clean]" />
+        <item itemvalue="Gradle.MimTest" />
         <item itemvalue="Gradle.SelectCommandTest" />
         <item itemvalue="Gradle.NavigationCommandTest" />
-        <item itemvalue="Gradle.MimTest" />
-        <item itemvalue="Gradle.MimTest.test_invalid_command_no_state_change" />
       </list>
     </recent_temporary>
   </component>

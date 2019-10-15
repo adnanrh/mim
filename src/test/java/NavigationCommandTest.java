@@ -6,6 +6,7 @@ public class NavigationCommandTest {
 
     private NavigationCommand command;
     private static String TEXT1 = "Hello World";
+    private static String TEXT2 = "Hello, World.";
 
     @Test(expected=IllegalArgumentException.class)
     public void test_invalid_argument() {
@@ -66,6 +67,14 @@ public class NavigationCommandTest {
         command = new NavigationCommand("e", TEXT1, new Selection(0, 0));
         Selection actual = command.execute();
         Selection expected = new Selection(4, 4);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test_move_to_word_end_different_word_types() {
+        command = new NavigationCommand("e", TEXT2, new Selection(4, 4));
+        Selection actual = command.execute();
+        Selection expected = new Selection(5, 5);
         assertEquals(expected, actual);
     }
 
