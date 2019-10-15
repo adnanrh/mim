@@ -60,18 +60,7 @@ public class SelectCommand extends Command {
      * @return a selection.
      */
     private Selection selectUntilWordEnd() {
-        int newEndIndex = text.length() - 1;
-        for (int i = selection.getEndIndex() + 1; i < text.length() - 1; i++) {
-            char ch = text.charAt(i);
-            char nextCh = text.charAt(i + 1);
-            if ((isLetterDigitOrUnderscore(ch) && !isLetterDigitOrUnderscore(nextCh)) ||
-                    (isOtherChar(ch) && !isOtherChar(nextCh))) {
-                newEndIndex = i;
-                break;
-            }
-        }
-
-        return new Selection(selection.getStartIndex(), newEndIndex);
+        return new Selection(selection.getStartIndex(), getNextWordEnd());
     }
 
     /**
@@ -81,9 +70,6 @@ public class SelectCommand extends Command {
      * @return a selection.
      */
     private Selection selectUntilNextMatch(char findChar) {
-        int newEndIndex = text.indexOf(findChar, selection.getEndIndex() + 1);
-        newEndIndex = newEndIndex == -1 ? selection.getEndIndex() : newEndIndex;
-        newEndIndex = newEndIndex == selection.getEndIndex() ? newEndIndex : newEndIndex - 1;
-        return new Selection(selection.getStartIndex(), newEndIndex);
+        return new Selection(selection.getStartIndex(), getNextMatch(findChar));
     }
 }

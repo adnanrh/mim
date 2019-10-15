@@ -54,18 +54,8 @@ public class NavigationCommand extends Command {
      * @return a selection.
      */
     private Selection moveToWordEnd() {
-        int newEndIndex = text.length() - 1;
-        for (int i = selection.getEndIndex() + 1; i < text.length() - 1; i++) {
-            char ch = text.charAt(i);
-            char nextCh = text.charAt(i + 1);
-            if ((isLetterDigitOrUnderscore(ch) && !isLetterDigitOrUnderscore(nextCh)) ||
-                    (isOtherChar(ch) && !isOtherChar(nextCh))) {
-                newEndIndex = i;
-                break;
-            }
-        }
-
-        return new Selection(newEndIndex, newEndIndex);
+        int newPosition = getNextWordEnd();
+        return new Selection(newPosition, newPosition);
     }
 
     /**
@@ -76,9 +66,7 @@ public class NavigationCommand extends Command {
      * @return a selection.
      */
     private Selection moveToNextMatch(char findChar) {
-        int newEndIndex = text.indexOf(findChar, selection.getEndIndex() + 1);
-        newEndIndex = newEndIndex == -1 ? selection.getEndIndex() : newEndIndex;
-        newEndIndex = newEndIndex == selection.getEndIndex() ? newEndIndex : newEndIndex - 1;
-        return new Selection(newEndIndex, newEndIndex);
+        int newPosition = getNextMatch(findChar);
+        return new Selection(newPosition, newPosition);
     }
 }

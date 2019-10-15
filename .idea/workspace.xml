@@ -4,11 +4,8 @@
     <list default="true" id="32218708-d201-479a-b5d5-167a5c10e3d2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Mim.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mim.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/NavigationCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NavigationCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SelectCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SelectCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Selection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Selection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MimTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MimTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -99,7 +96,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.MimTest">
+  <component name="RunManager" selected="Gradle.SelectCommandTest">
     <configuration name="Mim [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -254,11 +251,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.SelectCommandTest" />
+        <item itemvalue="Gradle.NavigationCommandTest" />
         <item itemvalue="Gradle.MimTest" />
         <item itemvalue="Gradle.Mim [test]" />
         <item itemvalue="Gradle.Mim [clean]" />
-        <item itemvalue="Gradle.SelectCommandTest" />
-        <item itemvalue="Gradle.NavigationCommandTest" />
       </list>
     </recent_temporary>
   </component>
