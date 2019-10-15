@@ -8,10 +8,23 @@ public class MimTest {
     private static Mim mim;
     private static String TEXT1 = "Hello World";
     private static String TEXT2 = "Hello, World.";
+    private static String EMPTY_STRING = "";
 
     @Before
     public void setUp() {
         mim = new Mim(TEXT1);
+    }
+
+    @Test
+    public void test_empty_text_display() {
+        mim = new Mim(EMPTY_STRING);
+        assertEquals("[]", mim.getDisplay());
+    }
+
+    @Test
+    public void test_null_text_sets_empty_string() {
+        mim = new Mim(null);
+        assertEquals("[]", mim.getDisplay());
     }
 
     @Test

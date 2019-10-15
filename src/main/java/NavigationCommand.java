@@ -1,3 +1,6 @@
+/**
+ * Class to represent a vim navigation command.
+ */
 public class NavigationCommand extends Command {
 
     private static String MOVE_TO_FIRST_COMMAND = "0";
@@ -9,6 +12,11 @@ public class NavigationCommand extends Command {
         super(command, text, selection);
     }
 
+    /**
+     * Performs the command represented by this instance.
+     * @return the new text selection after command execution.
+     * @throws IllegalArgumentException on unsupported navigation command.
+     */
     @Override
     public Selection execute() throws IllegalArgumentException {
         if (command.equals(MOVE_TO_FIRST_COMMAND))
@@ -23,14 +31,28 @@ public class NavigationCommand extends Command {
         throw new IllegalArgumentException(String.format(ILLEGAL_ARGUMENT_MESSAGE, command));
     }
 
+    /**
+     * Returns a selection of the first character in the text.
+     * @return a selection.
+     */
     private Selection moveToFirstChar() {
         return new Selection(0, 0);
     }
 
+    /**
+     * Returns a selection of the last character in the text.
+     * @return a selection.
+     */
     private Selection moveToLastChar() {
         return new Selection(text.length() - 1, text.length() - 1);
     }
 
+    /**
+     * Returns a selection of the next word ending that appears after the end
+     * of the current selection. Uses the definition of a word in vim defined
+     * in https://www.fprintf.net/vimCheatSheet.html.
+     * @return a selection.
+     */
     private Selection moveToWordEnd() {
         int newEndIndex = text.length() - 1;
         for (int i = selection.getEndIndex() + 1; i < text.length() - 1; i++) {
@@ -46,6 +68,13 @@ public class NavigationCommand extends Command {
         return new Selection(newEndIndex, newEndIndex);
     }
 
+    /**
+     * Returns a selection of the character appearing immediately before the
+     * first occurrence of the specified character after the end of the current
+     * selection.
+     * @param findChar the character to match.
+     * @return a selection.
+     */
     private Selection moveToNextMatch(char findChar) {
         int newEndIndex = text.indexOf(findChar, selection.getEndIndex() + 1);
         newEndIndex = newEndIndex == -1 ? selection.getEndIndex() : newEndIndex;
